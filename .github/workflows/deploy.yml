@@ -24,7 +24,12 @@ jobs:
         run: |
           /opt/pipx/venvs/ansible-core/bin/activate
           /opt/pipx/venvs/ansible-core/bin/python -m pip install boto3 botocore
-        
+      
+      - name: Generate SSH Key
+        run: |
+          echo ${{ secrets.ANSIBLE_SSH_KEY }} > ansible_key
+          chmod 400 ansible_key
+      
       - name: Check Dynamic Inventory
-        run: ansible -i aws_ec2.yml  all  -m ping -u ec2-user
+        run: ansible --private-key=ansible_key -i aws_ec2.yml  all  -m ping -u ec2-user
       
