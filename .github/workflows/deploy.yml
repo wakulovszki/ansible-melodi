@@ -26,5 +26,5 @@ jobs:
           /opt/pipx/venvs/ansible-core/bin/python -m pip install boto3 botocore
         
       - name: Check Dynamic Inventory
-        run: ansible -i aws_ec2.yml  all  -m ping
+        run: ansible -i aws_ec2.yml  all  -m ping -u ec2-user
       
