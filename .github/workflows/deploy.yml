@@ -16,8 +16,10 @@ jobs:
       - name: Check Ansible Version
         run: ansible --version
         
-      - name: Install boto3 and botocore
-        run: sudo apt-get update && sudo apt-get install boto3 botocore -y
+      - name: Install Python Prerequisites
+        run: |
+          /opt/pipx/venvs/ansible-core/bin/activate
+          /opt/pipx/venvs/ansible-core/bin/python -m pip install boto3 botocore
         
       - name: Check Dynamic Inventory
         run: ansible -i aws_ec2.yml  all  -m ping
