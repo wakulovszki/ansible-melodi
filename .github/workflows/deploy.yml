@@ -15,3 +15,7 @@ jobs:
 
       - name: Check Ansible Version
         run: ansible --version
+        
+      - name: Check Dynamic Inventory
+        run: ansible -i aws_ec2.yml  all  -m ping
+      
