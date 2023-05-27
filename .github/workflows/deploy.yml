@@ -33,3 +33,6 @@ jobs:
       - name: Check Dynamic Inventory
         run: ansible --private-key=ansible_key -i aws_ec2.yml  all  -m ping -u ec2-user
       
+      - name: Deploy App
+        run: ansible-playbook --private-key=ansible_key -i aws_ec2.yml -u ec2-user -b main.yml
+      
