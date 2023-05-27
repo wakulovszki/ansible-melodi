@@ -12,6 +12,7 @@ jobs:
     env:
       AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
       AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+      ANSIBLE_HOST_KEY_CHECKING: False
 
     steps:
       - uses: actions/checkout@v3
