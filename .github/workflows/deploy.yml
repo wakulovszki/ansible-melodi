@@ -16,6 +16,9 @@ jobs:
       - name: Check Ansible Version
         run: ansible --version
         
+      - name: Install boto3 and botocore
+        run: apt-get update && apt-get install boto3 botocore -y
+        
       - name: Check Dynamic Inventory
         run: ansible -i aws_ec2.yml  all  -m ping
       
