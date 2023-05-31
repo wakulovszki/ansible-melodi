@@ -22,7 +22,7 @@
       state: started
       enabled: yes
       
-- name: Add /var/www/html to safe.directory
+  - name: Add /var/www/html to safe.directory
     shell: git config --global --add safe.directory /var/www/html
 
   - name: pull melodi
